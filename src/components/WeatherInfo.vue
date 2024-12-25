@@ -1,6 +1,5 @@
 <template>
   <div class="weather-info">
-    <p>{{ $store.state.weatherData.icon }}</p>
     <div class="icon">
       <img
         :src="`https://openweathermap.org/img/wn/${$store.state.weatherData.icon}@2x.png`"

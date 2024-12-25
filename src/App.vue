@@ -23,11 +23,11 @@ onMounted(() => {
   store.dispatch('getWeather');
 });
 
-const onSearchCity = (city) => {
-  // console.log(city);
-  weatherData.value.city = city;
-  getWeather();
-};
+// const onSearchCity = (city) => {
+//   // console.log(city);
+//   weatherData.value.city = city;
+//   getWeather();
+// };
 </script>
 
 <template>
