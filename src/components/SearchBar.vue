@@ -9,8 +9,8 @@
         />
         <button
           @click="
-            $store.commit('onSearchCity', inputText);
-            $store.dispatch('getWeather');
+            store.onSearchCity(inputText); // 파라미터로 값 전달 가능
+            store.getWeather();
           "
         >
           <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
@@ -21,42 +21,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+  import { ref } from 'vue';
+  import { useStore } from '../store/store-pinia.js';
 
-const inputText = ref('');
-// const emits = defineEmits(['onSearchCity']); // 보낼 이벤트들을 모아두는곳
+  const store = useStore(); // 먼저 스토어를 가져오고
+  const inputText = ref('');
+  // const emits = defineEmits(['onSearchCity']); // 보낼 이벤트들을 모아두는곳
 </script>
 
 <style lang="scss" scoped>
-.search-bar {
-  padding: 8px 20px;
-  border-radius: 40px;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 0 20px;
+  .search-bar {
+    padding: 8px 20px;
+    border-radius: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 0 20px;
 
-  form {
-    .form-group {
-      display: flex;
-      input {
-        width: 100%;
-        border: none;
-        padding: 1em 0;
-        font-size: 18px;
-        outline: none;
-        font-size: 14px;
-      }
-      button {
-        background: transparent;
-        border: none;
-        &:hover {
-          cursor: pointer;
+    form {
+      .form-group {
+        display: flex;
+        input {
+          width: 100%;
+          border: none;
+          padding: 1em 0;
+          font-size: 18px;
+          outline: none;
+          font-size: 14px;
         }
-        .icon {
-          font-size: 24px;
+        button {
+          background: transparent;
+          border: none;
+          &:hover {
+            cursor: pointer;
+          }
+          .icon {
+            font-size: 24px;
+          }
         }
       }
     }
   }
-}
 </style>
